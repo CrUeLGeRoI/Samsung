@@ -4,11 +4,16 @@ import java.util.OptionalInt;
 public class TwoDimArray {
     public static void main(String[] args) {
         int [][] a = createArray(6, 6);
-        System.out.println(Arrays.deepToString(a));
+        for (int i = 0; i < a.length; i++) {  //идём по строкам
+            for (int j = 0; j < a[0].length; j++) {//идём по столбцам
+                System.out.print(" " + a[i][j] + " "); //вывод элемента
+            }
+            System.out.println();//перенос строки ради визуального сохранения табличной формы
+        }
         OptionalInt b = findMaxNumDiagonal(a);
         System.out.println(b.getAsInt());
-//        OptionalInt c = findMaxNumDiagonalReverse(a);
-//        System.out.println(c.getAsInt());
+        OptionalInt c = findMaxNumDiagonalReverse(a);
+        System.out.println(c.getAsInt());
         OptionalInt d = findMaxNumOddRow(a);
         System.out.println(d.getAsInt());
         OptionalInt e = findMaxNumOddColumn(a);
@@ -32,33 +37,23 @@ public class TwoDimArray {
             calcArray[i] = array[i][i];
         }
         System.out.println("findMaxNumDiagonal");
-        for (int i = 0; i < array.length; i++) {  //идём по строкам
-            for (int j = 0; j < array[0].length; j++) {//идём по столбцам
-                System.out.print(" " + array[i][j] + " "); //вывод элемента
-            }
-            System.out.println();//перенос строки ради визуального сохранения табличной формы
-        }
         OptionalInt max = Arrays.stream(calcArray).max();
         max.getAsInt();
         return max;
     }
-//    static OptionalInt findMaxNumDiagonalReverse(int[][] array){
-//        int[] calcArray = new int[array.length];
-//        for (int i = 0; i < array.length; i++){
-//            calcArray[i] = array[i][i];
-//        }
-//        System.out.println("findMaxNumDiagonalReverse");
-//        for (int i = 0; i < array.length; i++) {  //идём по строкам
-//            for (int j = 0; j < array[0].length; j++) {//идём по столбцам
-//                System.out.print(" " + array[i][j] + " "); //вывод элемента
-//            }
-//            System.out.println();//перенос строки ради визуального сохранения табличной формы
-//        }
-//
-//        OptionalInt max = Arrays.stream(calcArray).max();
-//        max.getAsInt();
-//        return max;
-//    }
+    static OptionalInt findMaxNumDiagonalReverse(int[][] array){
+        int[] calcArray = new int[array.length];
+
+        for (int i = 0; i < array.length; i++){
+            calcArray[i] = array[i][array.length - i - 1];
+        }
+
+
+        OptionalInt max = Arrays.stream(calcArray).max();
+        max.getAsInt();
+        System.out.println("findMaxNumDiagonalReverse");
+        return max;
+    }
     static OptionalInt findMaxNumOddRow(int[][] array){
         int index = 0;
         int[] calcArray = new int[(array.length / 2) * array[0].length];
@@ -73,7 +68,6 @@ public class TwoDimArray {
             }
         }
         System.out.println("findMaxNumOddRow");
-        System.out.println(Arrays.toString(calcArray));
         OptionalInt max = Arrays.stream(calcArray).max();
         max.getAsInt();
         return max;
@@ -92,7 +86,6 @@ public class TwoDimArray {
             }
         }
         System.out.println("findMaxNumOddColumn");
-        System.out.println(Arrays.toString(calcArray));
         OptionalInt max = Arrays.stream(calcArray).max();
         max.getAsInt();
         return max;
