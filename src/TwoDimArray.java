@@ -13,19 +13,19 @@ public class TwoDimArray {
             System.out.println();   //line break for visual purposes
         }
 
-        //findMaxNumDiagonal
+        //Finding maximum number from a diagonal
         OptionalInt b = findMaxNumDiagonal(a);
         System.out.println(b.getAsInt());
 
-        //findMaxNumDiagonalReverse
+        //Finding maximum number from a reversed diagonal
         OptionalInt c = findMaxNumDiagonalReverse(a);
         System.out.println(c.getAsInt());
 
-        //findMaxNumOddRow
+        //Finding maximum number from odd rows
         OptionalInt d = findMaxNumOddRow(a);
         System.out.println(d.getAsInt());
 
-        //findMaxNumOddColumn
+        //Finding maximum number from odd columns
         OptionalInt e = findMaxNumOddColumn(a);
         System.out.println(e.getAsInt());
     }
