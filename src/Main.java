@@ -52,9 +52,19 @@ public class Main {
         calc = Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2) && Math.pow(a, 2) + Math.pow(c, 2)  == Math.pow(b, 2) && Math.pow(b, 2) + Math.pow(c, 2) == Math.pow(a, 2) ? true:false;
         System.out.println("14th: " + calc);
          */
-        Calculator calc = new Calculator(5, 4);
+        //calculators for subtraction
+        Calculator calc = new Calculator(6, 4);
         Calculator calc1 = new Calculator(5f, 4f);
-        System.out.println(calc.minus(calc.getA(), calc.getB()));
-        System.out.println(calc1.minus(calc1.getaFloat(), calc1.getbFloat()));
+
+        //calculators for division
+        Calculator calc_divide = new Calculator(100, 0);
+        Calculator calc_divide1 = new Calculator(51.66f, 2.1f);
+
+        //subtraction
+        calc.minus(calc.getA(), calc.getB());
+        calc1.minus(calc1.getaFloat(), calc1.getbFloat());
+        //division
+        calc_divide.divide(calc_divide.getA(), calc_divide.getB());
+        calc_divide1.divide(calc_divide1.getaFloat(), calc_divide1.getbFloat());
     }
 }
