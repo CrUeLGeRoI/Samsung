@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        /*
         boolean calc;
         int a, b, c, d, x;
         a = 1;
@@ -50,5 +51,10 @@ public class Main {
         // 14th
         calc = Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2) && Math.pow(a, 2) + Math.pow(c, 2)  == Math.pow(b, 2) && Math.pow(b, 2) + Math.pow(c, 2) == Math.pow(a, 2) ? true:false;
         System.out.println("14th: " + calc);
+         */
+        Calculator calc = new Calculator(5, 4);
+        Calculator calc1 = new Calculator(5f, 4f);
+        System.out.println(calc.minus(calc.getA(), calc.getB()));
+        System.out.println(calc1.minus(calc1.getaFloat(), calc1.getbFloat()));
     }
 }
